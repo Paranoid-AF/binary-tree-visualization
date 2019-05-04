@@ -99,6 +99,7 @@ function main() {
 	document.getElementById("Cvs").setAttribute("height", String(hpx));
 	var cxt = document.getElementById("Cvs").getContext("2d");
 	var tree = prompt("Please enter the pre-order traversal series (including the empty node) of the binary tree.", "ABCD###EF##G###");
+  document.title = tree;
   tree = insertSpaces(tree);
 	var r = wpx / (maxRowNode * 2);
 	build(tree, cxt, r, r / 3 * 4, wpx);
