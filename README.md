@@ -4,9 +4,9 @@ Given the pre-order traversal sequence (including all empty encounters), this Ja
 
 For example, if you give the following input (the first number is used to determine the size of the nodes),
 
-> 32
+> 64
 
-> 1 2 3 # # 4 # # 5 6 7 # # 8 # # #
+> ABCD###EF##G###
 
 you will get this result:
 
