@@ -43,8 +43,7 @@ function linkNode(cxt, x1, y1, x2, y2, rpx) {
 }
 
 function isDigit(x) {
-	if (x === '0' || x === '1' || x === '2' || x === '3' || x === '4'
-	|| x === '5' || x === '6' || x === '7' || x === '8' || x === '9') {
+	if (x === 'A' || x === 'B' || x === 'C' || x === 'D' || x === 'E' || x === 'F' || x === 'G' || x === 'H' || x === 'I' || x === 'J' || x === 'K' || x === 'L' || x === 'M' || x === 'N' || x === 'O' || x === 'P' || x === 'Q' || x === 'R' || x === 'S' || x === 'T' || x === 'U' || x === 'V' || x === 'W' || x === 'X' || x === 'Y' || x === 'Z') {
 		return true;
 	} else {
 		return false;
@@ -63,7 +62,7 @@ function build(tree, cxt, rpx, tpx, wpx) {
 			while (end < len && isDigit(tree.charAt(end))) {
 				++end;
 			}
-			value = parseInt(tree.slice(cur, end));
+			value = tree.slice(cur, end);
 			cur = end;
 			var x = pxShift;
 			var y = layer * rpx + (layer - 1) * 2 * rpx;
@@ -88,6 +87,10 @@ function build(tree, cxt, rpx, tpx, wpx) {
 	dfs(1, wpx / 2, wpx / 2);
 }
 
+function insertSpaces(aString) {
+  return aString.split("").join(" ");
+}
+
 function main() {
 	maxRowNode = parseInt(prompt("Please enter the maximum number of nodes one row can contain, so the program can adjust the size of nodes.", "64"));
 	var wpx = getWidth() - 100;
@@ -95,7 +98,8 @@ function main() {
 	document.getElementById("Cvs").setAttribute("width", String(wpx));
 	document.getElementById("Cvs").setAttribute("height", String(hpx));
 	var cxt = document.getElementById("Cvs").getContext("2d");
-	var tree = prompt("Please enter the pre-order traversal series (including the empty node) of the binary tree, sepreted by spaces.", "1 2 4 # # 5 12 # 13 # 14 15 # # # # 3 6 8 10 # # 11 # # 9 # # 7 # #");
+	var tree = prompt("Please enter the pre-order traversal series (including the empty node) of the binary tree.", "ABCD###EF##G###");
+  tree = insertSpaces(tree);
 	var r = wpx / (maxRowNode * 2);
 	build(tree, cxt, r, r / 3 * 4, wpx);
 }
